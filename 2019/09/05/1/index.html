@@ -7,17 +7,17 @@
   
   <title>通知授权整理 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="通知授权管理iOS 10 以上通过 userNotification.framework 请求授权 1234567891011121314151617181920UNUserNotificationCenter.current().getNotificationSettings &amp;#123; (settings) in    switch settings.authorizationStatus">
+  <meta name="description" content="iOS 10 以上通过 userNotification.framework 请求授权 1234567891011121314151617181920UNUserNotificationCenter.current().getNotificationSettings &amp;#123; (settings) in    switch settings.authorizationStatus &amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通知授权整理">
 <meta property="og:url" content="http://yoursite.com/2019/09/05/1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="通知授权管理iOS 10 以上通过 userNotification.framework 请求授权 1234567891011121314151617181920UNUserNotificationCenter.current().getNotificationSettings &amp;#123; (settings) in    switch settings.authorizationStatus">
+<meta property="og:description" content="iOS 10 以上通过 userNotification.framework 请求授权 1234567891011121314151617181920UNUserNotificationCenter.current().getNotificationSettings &amp;#123; (settings) in    switch settings.authorizationStatus &amp;#123;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-05T10:41:49.033Z">
+<meta property="og:updated_time" content="2019-09-10T03:01:49.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通知授权整理">
-<meta name="twitter:description" content="通知授权管理iOS 10 以上通过 userNotification.framework 请求授权 1234567891011121314151617181920UNUserNotificationCenter.current().getNotificationSettings &amp;#123; (settings) in    switch settings.authorizationStatus">
+<meta name="twitter:description" content="iOS 10 以上通过 userNotification.framework 请求授权 1234567891011121314151617181920UNUserNotificationCenter.current().getNotificationSettings &amp;#123; (settings) in    switch settings.authorizationStatus &amp;#123;">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -86,7 +86,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="通知授权管理"><a href="#通知授权管理" class="headerlink" title="通知授权管理"></a>通知授权管理</h1><p>iOS 10 以上通过 userNotification.framework 请求授权</p>
+        <p>iOS 10 以上通过 userNotification.framework 请求授权</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UNUserNotificationCenter</span>.current().getNotificationSettings &#123; (settings) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">switch</span> settings.authorizationStatus &#123;</span><br><span class="line">    <span class="keyword">case</span> .authorized:</span><br><span class="line">        <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">            <span class="type">UIApplication</span>.shared.registerForRemoteNotifications()</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">case</span> .notDetermined:</span><br><span class="line">        <span class="type">UNUserNotificationCenter</span>.current().requestAuthorization(options: [.badge, .alert, .sound]) &#123; (granted, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> granted &#123;</span><br><span class="line">                <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">                    <span class="type">UIApplication</span>.shared.registerForRemoteNotifications()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">"Notification authorization failed. ERROR: \(error?.localizedDescription ?? "</span><span class="string">")"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>iOS7 及之前版本</p>
