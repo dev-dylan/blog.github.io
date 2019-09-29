@@ -5,19 +5,19 @@
   
 
   
-  <title>蝴蝶效应 | Hexo</title>
+  <title>Swift 真机运行报错：Reason：image not found | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="蝴蝶效应：南美的一只蝴蝶扇动了一下翅膀，可能就会引发太平洋上的一场海啸。 生活中亦是如此，所有的情感积累和宣泄都会在日后的某一天出现。">
+  <meta name="description" content="Swift 加载静态库 framework 时运行会报错，提示信息为： 123dyld: Library not loaded: @rpath/SensorsData.framework/SensorsData  Referenced from: /var/containers/Bundle/Application/B76AA3BC-B3FE-4455-87D1-DF97F1065394/Exam">
 <meta property="og:type" content="article">
-<meta property="og:title" content="蝴蝶效应">
-<meta property="og:url" content="http://yoursite.com/2019/09/10/2/index.html">
+<meta property="og:title" content="Swift 真机运行报错：Reason：image not found">
+<meta property="og:url" content="http://yoursite.com/2019/09/17/5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="蝴蝶效应：南美的一只蝴蝶扇动了一下翅膀，可能就会引发太平洋上的一场海啸。 生活中亦是如此，所有的情感积累和宣泄都会在日后的某一天出现。">
+<meta property="og:description" content="Swift 加载静态库 framework 时运行会报错，提示信息为： 123dyld: Library not loaded: @rpath/SensorsData.framework/SensorsData  Referenced from: /var/containers/Bundle/Application/B76AA3BC-B3FE-4455-87D1-DF97F1065394/Exam">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-10T02:59:47.199Z">
+<meta property="og:updated_time" content="2019-09-17T07:15:59.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="蝴蝶效应">
-<meta name="twitter:description" content="蝴蝶效应：南美的一只蝴蝶扇动了一下翅膀，可能就会引发太平洋上的一场海啸。 生活中亦是如此，所有的情感积累和宣泄都会在日后的某一天出现。">
+<meta name="twitter:title" content="Swift 真机运行报错：Reason：image not found">
+<meta name="twitter:description" content="Swift 加载静态库 framework 时运行会报错，提示信息为： 123dyld: Library not loaded: @rpath/SensorsData.framework/SensorsData  Referenced from: /var/containers/Bundle/Application/B76AA3BC-B3FE-4455-87D1-DF97F1065394/Exam">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/09/10/2/" class="article-date">
-  <time datetime="2019-09-10T02:57:01.000Z" itemprop="datePublished">2019-09-10</time>
+    <a href="/2019/09/17/5/" class="article-date">
+  <time datetime="2019-09-17T06:34:59.000Z" itemprop="datePublished">2019-09-17</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      蝴蝶效应
+      Swift 真机运行报错：Reason：image not found
     </h1>
   
 
@@ -86,13 +86,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>蝴蝶效应：南美的一只蝴蝶扇动了一下翅膀，可能就会引发太平洋上的一场海啸。</p>
-<p>生活中亦是如此，所有的情感积累和宣泄都会在日后的某一天出现。</p>
+        <p>Swift 加载静态库 framework 时运行会报错，提示信息为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dyld: Library not loaded: @rpath/SensorsData.framework/SensorsData</span><br><span class="line">  Referenced from: /var/containers/Bundle/Application/B76AA3BC-B3FE-4455-87D1-DF97F1065394/Example.app/Example</span><br><span class="line">  Reason: image not found</span><br></pre></td></tr></table></figure>
+
+<p>分析原因：未正确加载 framework 文件；</p>
+<p>解决方案：在 build Phases 选择 + 号，添加 new copy file phase ，选择 framework 类型，再添加相关 framework 文件</p>
+<p>![屏幕快照 2019-09-17 15.15.23](/Users/dylan/Desktop/屏幕快照 2019-09-17 15.15.23.png)</p>
+<p>![image-20190917151557049](/Users/dylan/Library/Application Support/typora-user-images/image-20190917151557049.png)</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/10/2/" data-id="ck14eivsh0003qxgz7kl4vad2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/17/5/" data-id="ck14eivsj0005qxgzmpxxqauw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -101,19 +106,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/09/16/3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/19/6/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          +load 和 +initialize 对比
+          ReactNative 学习总结
         
       </div>
     </a>
   
   
-    <a href="/2019/09/05/1/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/09/16/4/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">通知授权整理</div>
+      <div class="article-nav-title">Alfred workflow：Hexo 快捷操作</div>
     </a>
   
 </nav>
