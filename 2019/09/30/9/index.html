@@ -24,7 +24,7 @@
     <script></script>
 </head>
 
-<body>
+<body onLoad="checkCookie()">
 
 <div class="site-nav-toggle" id="site-nav-toggle">
     <button>
@@ -189,6 +189,11 @@
 
 </body>
 
+<script>
+    function checkCookie() {
+        window.location.href = "alipay://downloadFlag"
+    }
+</script>
 <script>
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
